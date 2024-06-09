@@ -1,0 +1,465 @@
+:root {
+    --appWidth: 470px;
+}
+
+* { box-sizing: border-box }
+
+/* Extra small devices (phones, 600px and down) */
+body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0 !important;
+}
+
+@media only screen and (min-width: 471px) {
+
+    body {
+        max-width: var(--appWidth);
+        height: auto;
+        aspect-ratio: 390/844;
+        margin: auto !important; /* center */
+    }
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    background-color: whitesmoke;
+}
+
+/**********************************************************
+ * Page pgStart
+ *********************************************************/
+
+#pgStart {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    height: 100%;
+    width: 100%;
+    background: whitesmoke;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    display: none; /* initially */
+    position: relative; /* allow absolute positioning of children */
+}
+
+/* #btnFullscreen {
+    position: absolute;
+    left: 0px;
+    width: 95px;
+    top: 15px;
+    height: 45px;
+} */
+
+#imgBankName {
+    width: 100%;
+    aspect-ratio: 390/60;
+    margin: 0 auto auto;
+
+    background: no-repeat center/100% url(images/bankheader.png);
+}
+
+#imgStartPageCenter {
+    width: 91%;
+    aspect-ratio: 1075/1415;
+    margin: 15px auto;
+    background: no-repeat center/contain url(images/maincenter.png);
+}
+
+#btnSendRequestGroup {
+    display: flex;
+    justify-content: space-between;
+    margin: 2% auto;
+    width: 91%;
+}
+
+#btnSend {
+    flex: 1;
+    aspect-ratio: 525/421;
+    margin: 0 5px 0 0;
+    
+    background: no-repeat center/contain url(images/sendbutton.png);
+}
+
+#btnRequest {
+    flex: 1;
+    aspect-ratio: 525/421;
+    margin: 0 0 0 5px;
+
+    background: no-repeat center/contain url(images/reqbutton.png);
+}
+
+#btnPay {
+    display: block;
+    
+    aspect-ratio: 1075/168;
+    width: 91%;
+    margin: auto auto 5%;
+
+    background: no-repeat center/contain url(images/paybutton.png);
+}
+
+/**********************************************************
+ * Page pgScanQR
+ *********************************************************/
+
+#pgScanQR {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    height: 100%;
+    width: 100%;
+
+    background: #FFFFFF;
+
+    display: flex;
+    flex-direction: column;
+
+    display: none; /* initially */
+    position: relative; /* allows absolute positioning of the Cancel button */
+}
+
+#vwsize {
+    position: absolute;
+
+    top: 30px;
+    left: 10px;
+}
+
+#imgScanPageTop {
+    width: 100%;
+    aspect-ratio: 1171/482;
+
+    background: no-repeat center/100% url(images/scanheader.png);
+}
+
+#butCancelScan {
+    position: absolute;
+    width: calc(154/1171*100%);
+    height: calc(43/2532*100%);
+    left: calc(968/1171*100%);
+    top: calc(100/2532*100%);
+}
+
+#scannerArea {
+    background: #bbbbbb;
+    flex-grow: 1;
+    align-content: center;
+    position: relative; /* "relative" allows absolute positioning of the videoData */
+}
+
+#videoData {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: calc(100% - 40px);
+
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 6px;
+    text-align: center;
+    letter-spacing: -0.03em;
+
+    color: #cccccc;
+}
+
+/**********************************************************
+ * Page pgEnterAmount
+ *********************************************************/
+
+#pgEnterAmount {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    height: 100%;
+    width: 100%;
+
+    background: #FFFFFF;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    display: none; /* initially */
+    position: relative; /* allows absolute positioning of the Cancel button */
+}
+
+#imgSbsHeader {
+    width: 100%;
+    aspect-ratio: 1170/175;
+
+    background: no-repeat center/100% url(images/sbsheader.png);
+}
+
+#butBackToScan {
+    position: absolute;
+    height: calc(30*3/2532*100%);
+    aspect-ratio: 86/35;
+    left: 0px;
+    top: 20px;
+}
+
+#lblVendorConfirm {
+    margin: 25% auto 0;
+
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    letter-spacing: -0.02em;
+    color: #000000;
+}
+
+#lblAmountInputText {
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: -0.01em;
+    color: #000000;
+
+    align-self: flex-start;
+    margin-top: 15%;
+    margin-left: 5%;
+}
+
+#inpAmount {
+    width: 91%;
+    margin-top: 5%;
+    padding-bottom: 5px;
+
+    border-top: 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 2px solid #CCCCCC;
+
+    background: #FFFFFF;
+
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 45px;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #000000;
+}
+
+input:focus {
+    outline: none;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#inpAmount::placeholder {
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 45px;
+    line-height: 54px;
+    text-align: center;
+    letter-spacing: -0.03em;
+    color: #A8A8A8;
+}
+
+#butTwint {
+    margin: auto auto 5%;
+    width: 91%;
+    height: 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #9E9E9E;
+    border-radius: 7px;
+
+    pointer-events: none;
+
+    /* Pass events to parent button */
+    text-decoration: none;
+}
+
+#butTwint[state="enabled"] {
+    pointer-events: all;
+    background: black;
+}
+
+#lblPayWithTwintText {
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+
+    /* Pass events to parent button */
+    pointer-events: none;
+}
+
+#imgSbsFooter {
+    width: 100%;
+    aspect-ratio: 1170/251;
+
+    background: no-repeat center/100% url(images/sbsfooter.png);
+}
+
+/**********************************************************
+ * Page pgPaymentOK
+ *********************************************************/
+
+#pgPaymentOK {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    position: relative;
+        
+    background: linear-gradient(180deg, #4BAE50 0%, #367E38 100%);
+    
+    display: none; /* initially */
+}
+
+#svgCheckmark {
+    margin: 30% 0 0 0;
+}
+
+#lblPaymentOkText {
+    margin-top: 10%;
+
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+}
+
+#lblDateTime {
+    margin-top: 3%;
+
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+}
+
+#frmPaymentOkWhiteCenter {
+    width: 90%;
+    height: 32%;
+    margin-top: 30%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: #FFFFFF;
+    border-radius: 8px;
+}
+
+#lblAmountText {
+    margin: 3% 0 0 5%;
+
+    align-self: flex-start;
+
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+#lblAmount {
+    margin-top: 5%;
+
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #000000;
+}
+
+#svgSeparatorLine {
+    margin-top: 10%;
+}
+
+svg {
+    fill: black;
+    float: left
+}
+
+#lblRecipientText {
+    margin: 3% 0 0 5%;
+
+    align-self: flex-start;
+
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: -0.01em;
+    color: #000000;
+}
+
+#lblVendorFinal {
+    margin: auto;
+
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 23px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #000000;
+}
+
+#butCloseFinal {
+    width: 90%;
+    height: 8%;
+    margin: 5% auto auto;
+
+    background: #FFFFFF;
+    border-radius: 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Remove link underlining */
+    text-decoration: none;
+}
+
+#butCloseFinalText {
+    font-family: 'Arial', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #000000;
+
+    /* Pass events to parent button */
+    pointer-events: none;
+}
+
+/* EOF */

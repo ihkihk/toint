@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Toint</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy" content="worker-src https://ihkihk.github.io/" />
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=overlays-content" />
+
+    <!-- iOS PWA -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="apple-touch-icon" href="icons/180.png" />
+    <link rel="apple-touch-startup-image"
+        media="screen and (device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"
+        href="ios/splash390.png" />
+
+    <!-- Android -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#cccccc" />
+
+    <link rel="icon" sizes="192x192" href="icons/192.png" />
+
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="icon" href="icons/wheel.svg" /> -->
+
+    <script defer src="script.js"></script>
+    <script defer src="html5-qrcode.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div id="pgStart">
+            <div id="vwsize" style="display: none">Width x Height</div>
+            <div id="imgBankName"></div>
+            <div id="imgStartPageCenter"></div>
+            <div id="btnSendRequestGroup">
+                <div id="btnSend"></div>
+                <div id="btnRequest"></div>
+            </div>
+            <a id="btnPay" href="gotoPageScanQR" data-link></a>
+            <!-- <a id="btnFullscreen" href="gotoFullscreen" data-link></a> -->
+        </div>
+
+        <div id="pgScanQR">
+            <div id="imgScanPageTop"></div>
+            <a id="butCancelScan" href="gotoStartPage" data-link></a>
+            <div id="scannerArea" onclick="navigateTo('gotoPageEnterAmount')">
+                <div id="vidScanner"></div>
+                <span id="videoData">Video data</span>
+            </div>
+        </div>
+
+        <div id="pgEnterAmount">
+            <div id="imgSbsHeader"></div>
+            <span id="lblVendorConfirm">Zudi Güggeli-Grill</span>
+            <span id="lblAmountInputText">Amount</span>
+            <input id="inpAmount" placeholder="CHF 0.00" type="text" inputmode="decimal"></input>
+            <a id="butTwint" href="gotoPagePaymentOk" data-link>
+                <span id="lblPayWithTwintText">Pay with TWINT</span>
+            </a>
+            <a id="butBackToScan" data-link href="gotoPageScanQR"></a>
+            <div id="imgSbsFooter"></div>
+        </div>
+
+        <div id="pgPaymentOK">
+            <div id="svgCheckmark">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 0 100 100" width="87px" height="87px">
+                    <style>
+                        .hexagon {
+                            fill: none;
+                            stroke: white;
+                            stroke-width: 5;
+                            stroke-dasharray: 100;
+                            stroke-dashoffset: 100;
+                            stroke-linecap: round;
+                            stroke-linejoin: round;
+                            animation: drawAnimation 1.3s linear forwards infinite;
+                        }
+
+                        .checkmark {
+                            fill: none;
+                            stroke: white;
+                            stroke-width: 6;
+                            stroke-dasharray: 100;
+                            stroke-dashoffset: 100;
+                            stroke-linecap: round;
+                            stroke-linejoin: round;
+                            animation: drawAnimation 1.3s linear forwards infinite;
+                        }
+
+                        @keyframes drawAnimation {
+                            0% {
+                                stroke-dashoffset: 100;
+                            }
+
+                            80% {
+                                stroke-dashoffset: 0;
+                            }
+
+                            100% {
+                                stroke-dashoffset: 0;
+                            }
+                        }
+                    </style>
+                    <path class="hexagon" d="M50 5 L90 25 L90 75 L50 95 L10 75 L10 25 Z" pathLength="100" />
+                    <path class="checkmark" d="M32 54 L43 64 L59 40" pathLength="100" />
+                </svg>
+            </div>
+            <div id="imgCheckmark" style="display: none;"></div>
+            <span id="lblPaymentOkText">Payment successful</span>
+            <span id="lblDateTime">31 May 2024 | 12:24</span>
+            <div id="frmPaymentOkWhiteCenter">
+                <span id="lblAmountText">Amount</span>
+                <span id="lblAmount">CHF 9.00</span>
+                <div id="svgSeparatorLine">
+                    <svg width="311" height="10" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 1H145.5L155 8.5L165 1H310.5" stroke="#ACACAC" fill="none" />
+                    </svg>
+                </div>
+                <span id="lblRecipientText">Recipient</span>
+                <span id="lblVendorFinal">Zudi Güggeli-Grill</span>
+            </div>
+            <a id="butCloseFinal" href="gotoStartPage" data-link>
+                <span id="butCloseFinalText">Close</span>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
